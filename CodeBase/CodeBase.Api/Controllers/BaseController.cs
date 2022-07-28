@@ -1,5 +1,7 @@
 ﻿namespace CodeBase.Api.Controllers;
 
+[Microsoft.AspNetCore.Mvc.RouteAttribute("api/v1/[controller]")]
+[Microsoft.AspNetCore.Mvc.ApiControllerAttribute]
 public class BaseController : Microsoft.AspNetCore.Mvc.ControllerBase
 {
     protected Microsoft.AspNetCore.Mvc.IActionResult HandleException(Exception ex)

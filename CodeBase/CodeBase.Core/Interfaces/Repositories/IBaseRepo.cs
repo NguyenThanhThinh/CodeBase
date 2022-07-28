@@ -2,7 +2,7 @@
 
 namespace CodeBase.Core.Repositories.Interfaces;
 
-public interface IBaseRepository<TEntity>
+public interface IBaseRepo<TEntity>
 {
     #region Methods
 

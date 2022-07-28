@@ -6,11 +6,11 @@ using Dapper;
 
 namespace CodeBase.Infrastructure.Repositories;
 
-public class BaseRepository<TEntity> : IBaseRepository<TEntity>
+public class BaseRepo<TEntity> : IBaseRepo<TEntity>
 {
     #region Contructor
 
-    public BaseRepository()
+    public BaseRepo()
     {
         SqlConnectionString = "";
         SqlTableName = typeof(TEntity).Name;

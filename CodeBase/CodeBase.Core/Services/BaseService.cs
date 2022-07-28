@@ -9,7 +9,7 @@ public class BaseService<TEntity> : IBaseService<TEntity>
 {
     #region Properties
 
-    private readonly IBaseRepository<TEntity> _repo;
+    private readonly IBaseRepo<TEntity> _repo;
 
 
     protected List<string> ErrorMessages = new();
@@ -21,7 +21,7 @@ public class BaseService<TEntity> : IBaseService<TEntity>
 
     #region Contructor
 
-    public BaseService(IBaseRepository<TEntity> repo)
+    public BaseService(IBaseRepo<TEntity> repo)
     {
         _repo = repo;
     }
@@ -30,28 +30,28 @@ public class BaseService<TEntity> : IBaseService<TEntity>
 
     #region Methods
 
-    public Task<int> Insert(TEntity entity)
+    public async Task<int> Insert(TEntity entity)
     {
         CrudMode = CrudMode.Add;
 
-        if (!Validate(entity)) throw new ValidationException(ErrorMessages);
+        if (!await Validate(entity)) throw new ValidationException(ErrorMessages);
 
-        return _repo.Insert(entity);
+        return await _repo.Insert(entity);
     }
 
-    public Task<int> Update(TEntity entity)
+    public async Task<int> Update(TEntity entity)
     {
         CrudMode = CrudMode.Update;
 
-        if (!Validate(entity)) throw new ValidationException(ErrorMessages);
+        if (!await Validate(entity)) throw new ValidationException(ErrorMessages);
 
-        return _repo.Update(entity);
+        return await _repo.Update(entity);
     }
 
 
-    protected virtual bool Validate(TEntity entity)
+    protected virtual async Task<bool> Validate(TEntity entity)
     {
-        return true;
+        return await Task.FromResult(true);
     }
 
     #endregion

@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Core.Interfaces.Services.Department;
+﻿namespace CodeBase.Core.Interfaces.Services;
 
 public interface IDepartmentService : IBaseService<CodeBase.Core.Models.Department>
 {
