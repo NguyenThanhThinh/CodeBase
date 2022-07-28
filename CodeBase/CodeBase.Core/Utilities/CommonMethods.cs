@@ -18,7 +18,7 @@ public class CommonMethods
 
     public static string GetEmptyStringIfNull(string? value)
     {
-        if (value == null) return "";
+        if (value == null) return string.Empty;
         return value;
     }
 }
