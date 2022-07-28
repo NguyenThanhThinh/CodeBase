@@ -9,7 +9,7 @@ public class BaseService<TEntity> : IBaseService<TEntity>
 {
     #region Properties
 
-    private IBaseRepository<TEntity> _repo;
+    private readonly IBaseRepository<TEntity> _repo;
 
 
     protected List<string> ErrorMessages = new();
